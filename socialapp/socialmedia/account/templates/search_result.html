@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if posts %}
+        {% for post in posts %}
+            <div>
+                <h2>{{ post.author.username }}</h2>
+                <p>{{ post.content }}</p>
+                <a href="{% url 'post_detail' post.id %}">View Details</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No posts found.</p>
+    {% endif %}
+</body>
+</html>
